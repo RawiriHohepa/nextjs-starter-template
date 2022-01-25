@@ -45,3 +45,14 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
   - ``pages/_app.js`` is the top-level component for **ALL PAGES**, so importing CSS here will apply it to all pages
   - Can't global import anywhere else since it would unintentionally affect other pages when navigating
 - [Styling Tips](https://nextjs.org/learn/basics/assets-metadata-css/styling-tips)
+
+### Data Fetching
+[Tutorial Section](https://nextjs.org/learn/basics/data-fetching)
+- [getStaticProps Details](https://nextjs.org/learn/basics/data-fetching/getstaticprops-details)
+  - Can fetch from external API
+  - Can make DB queries directly since getStaticProps is only run on server-side
+  - In dev, getStaticProps runs on every request. In prod, only runs at build time
+  - Can only export from a page (stored in ``pages/``)
+  - If can't pre-render page ahead of user request, use [Server-side rendering](https://nextjs.org/docs/basic-features/pages#server-side-rendering) or skip pre-rendering
+- [getServerSideProps or Client-side rendering](https://nextjs.org/learn/basics/data-fetching/request-time)
+  - if fetching data on client-side, recommended to use [SWR](https://swr.vercel.app/)
