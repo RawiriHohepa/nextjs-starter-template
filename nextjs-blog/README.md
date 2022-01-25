@@ -109,3 +109,16 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
     > - ``pages/post/create.js`` - Will match ``/post/create``
     > - ``pages/post/[pid].js`` - Will match ``/post/1``, ``/post/abc``, etc. But not ``/post/create``
     > - ``pages/post/[...slug].js`` - Will match ``/post/1/2``, ``/post/a/b/c``, etc. But not ``/post/create``, ``/post/abc``
+
+### API
+- Can use [API Routes](https://nextjs.org/docs/api-routes/introduction) to create a serverless API at the ``/api/`` path
+  - Create a ``pages/api/`` folder containing endpoints as js files e.g. ``pages/api/hello.js``
+  - Any file in ``pages/api/`` is treated as a server-only endpoint
+  - Each endpoint file contains a default export ``handler`` function in a very Express-like fashion
+- [API Routes Tips](https://nextjs.org/learn/basics/api-routes/api-routes-details)
+  - Don't fetch API routes from ``getStaticProps`` or ``getStaticPaths``
+    - These are only run server-side so database queries, etc. can be made directly from these functions (or helper funcs)
+  - Good use case is submitting forms
+    - Frontend form calls POST request to API route, server-side handler makes DB requests directly
+- Can use API routes to preview Headless CMS drafts. Feature is called [Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode)
+- API routes can be dynamic just like normal pages - [Dynamic API Routes](https://nextjs.org/docs/api-routes/dynamic-api-routes)
