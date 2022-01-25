@@ -56,3 +56,25 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
   - If can't pre-render page ahead of user request, use [Server-side rendering](https://nextjs.org/docs/basic-features/pages#server-side-rendering) or skip pre-rendering
 - [getServerSideProps or Client-side rendering](https://nextjs.org/learn/basics/data-fetching/request-time)
   - if fetching data on client-side, recommended to use [SWR](https://swr.vercel.app/)
+
+### Dynamic Routes
+[Tutorial Section](https://nextjs.org/learn/basics/dynamic-routes)
+- To make dynamic routes, name the page with square brackets around the path variable
+  - e.g. for ``/posts/<id>`` create page called ``[id].js`` in ``pages/posts``
+- In dynamic page, export ``getStaticPaths`` that returns a list of possible values for the variable
+  - MUST be a list of param objects containing the path variable e.g.<br>
+  ```
+  [
+    {
+      params: {
+        id: 'ssg-ssr'
+      }
+    },
+    {
+      params: {
+        id: 'pre-rendering'
+      }
+    }
+  ]
+  ```
+- The path variable is used in ``getStaticProps``, which is passed a ``params`` object containing the variable e.g. ``params.id``
