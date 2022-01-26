@@ -5,7 +5,7 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 ### Routing
 [Tutorial Section](https://nextjs.org/learn/basics/navigate-between-pages)
 - routing is automatic based on the ``pages/`` directory e.g.
-  - ``pages/index.js`` is associated with ``/``
+  - ``pages/index.tsx`` is associated with ``/``
   - ``pages/posts/first-post.js`` is associated with ``/posts/first-post``
 - ``Link`` components use the route associated with the desired page
   - similar to react-router-dom but with ``href`` prop instead of ``to`` and with ``a`` child
@@ -39,11 +39,11 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
 ### CSS
 [Tutorial Section](https://nextjs.org/learn/basics/assets-metadata-css/css-styling)
-- Example used [styled-jsx](https://github.com/vercel/styled-jsx) on ``pages/index.js`` (check initial commit)
-- Example uses [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css) for ``components/layout.js`` and ``styles/utils.module.css``
+- Example used [styled-jsx](https://github.com/vercel/styled-jsx) on ``pages/index.tsx`` (check initial commit)
+- Example uses [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css) for ``components/layout.tsx`` and ``styles/utils.module.css``
 - Can use [styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components) too (no built-in support tho)
-- Can import global styling into ``pages/_app.js``
-  - ``pages/_app.js`` is the top-level component for **ALL PAGES**, so importing CSS here will apply it to all pages
+- Can import global styling into ``pages/_app.tsx``
+  - ``pages/_app.tsx`` is the top-level component for **ALL PAGES**, so importing CSS here will apply it to all pages
   - Can't global import anywhere else since it would unintentionally affect other pages when navigating
 - [Styling Tips](https://nextjs.org/learn/basics/assets-metadata-css/styling-tips)
 
@@ -61,7 +61,7 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 ### Dynamic Routes
 [Tutorial Section](https://nextjs.org/learn/basics/dynamic-routes)
 - To make dynamic routes, name the page with square brackets around the path variable
-  - e.g. for ``/posts/<id>`` create page called ``[id].js`` in ``pages/posts``
+  - e.g. for ``/posts/<id>`` create page called ``[id].tsx`` in ``pages/posts``
 - In dynamic page, export ``getStaticPaths`` that returns a list of possible values for the variable
   - MUST be a list of param objects containing the path variable e.g.<br>
   ```
@@ -112,7 +112,7 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
 ### API
 - Can use [API Routes](https://nextjs.org/docs/api-routes/introduction) to create a serverless API at the ``/api/`` path
-  - Create a ``pages/api/`` folder containing endpoints as js files e.g. ``pages/api/hello.js``
+  - Create a ``pages/api/`` folder containing endpoints as js files e.g. ``pages/api/hello.ts``
   - Any file in ``pages/api/`` is treated as a server-only endpoint
   - Each endpoint file contains a default export ``handler`` function in a very Express-like fashion
 - [API Routes Tips](https://nextjs.org/learn/basics/api-routes/api-routes-details)
@@ -122,3 +122,13 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
     - Frontend form calls POST request to API route, server-side handler makes DB requests directly
 - Can use API routes to preview Headless CMS drafts. Feature is called [Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode)
 - API routes can be dynamic just like normal pages - [Dynamic API Routes](https://nextjs.org/docs/api-routes/dynamic-api-routes)
+
+### Typescript
+[Tutorial Section](https://nextjs.org/learn/excel/typescript) <br>
+[Typescript Docs](https://nextjs.org/docs/basic-features/typescript)
+- Can configure ``tsconfig.json`` but should **not** edit ``next-env.d.ts``
+```
+npx create-next-app@latest --ts
+# or
+yarn create next-app --typescript
+```
